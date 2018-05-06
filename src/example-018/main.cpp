@@ -2,7 +2,7 @@
 //                作者：刘文涛                                        //
 //                书籍：《网络安全编程技术与实例》                    //
 //--------------------------------------------------------------------//
-#include <win32/libnet.h>
+#include <libnet.h>
 void main()
 {
     libnet_t* LibnetHandle;

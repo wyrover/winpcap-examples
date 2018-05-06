@@ -240,6 +240,53 @@ workspace "winpcap-examples"
             has_stdafx(name, dir)               
     end
 
+
+    project "libnet"   
+        removeconfigurations "TRACE*"   
+        kind "SharedLib"    
+        defines { "GTEST_HAS_PTHREAD=0", "_HAS_EXCEPTIONS=1" }            
+        files
+        {
+            "3rdparty/libnet/libnet/src/libnet_a*.c",
+            "3rdparty/libnet/libnet/src/libnet_build_*.c",
+            "3rdparty/libnet/libnet/src/libnet_c*.c",
+            "3rdparty/libnet/libnet/src/libnet_dll.c",
+            "3rdparty/libnet/libnet/src/libnet_error.c",
+            "3rdparty/libnet/libnet/src/libnet_i*.c",
+            "3rdparty/libnet/libnet/src/libnet_link_win32.c",
+            "3rdparty/libnet/libnet/src/libnet_p*.c",
+            "3rdparty/libnet/libnet/src/libnet_raw.c",
+            "3rdparty/libnet/libnet/src/libnet_resolve.c",
+            "3rdparty/libnet/libnet/src/libnet_version.c",
+            "3rdparty/libnet/libnet/src/libnet_write.c"
+            
+            
+            
+                           
+        }     
+        removefiles
+        {
+           
+        }
+        includedirs
+        {       
+           
+            "3rdparty/libnet/libnet/include",
+            "3rdparty/winpcap/Include",
+            
+
+        }
+        libdirs
+        {
+            "3rdparty/winpcap/Lib"
+        }
+        links
+        {
+            "Advapi32.lib"
+        }
+
+    
+
     group "test"       
 
         
@@ -263,6 +310,26 @@ workspace "winpcap-examples"
         create_winpacp_example_project("example-016", "src")
         create_winpacp_example_project("example-017", "src")
         create_winpacp_example_project("example-018", "src")
+            filter { "platforms:Win32" }             
+                includedirs
+                {
+                    "3rdparty/libnet/libnet/include"
+                }
+                links
+                {
+                    "libnet"
+                }
+            filter "platforms:x64"
+                includedirs
+                {
+                    "3rdparty/libnet/libnet/include"
+                }
+                links
+                {
+                    "libnet"
+                }
+
+
         create_winpacp_example_project("example-019", "src")
             
 
