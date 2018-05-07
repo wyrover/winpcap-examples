@@ -20,3 +20,13 @@
 - example-017 发送 ICMP 包
 - example-018 使用 libnet 发包
 - example-018 dump 包到文本文件
+
+
+- Layer2-Pivoting-Client   https://github.com/rsmudge/Layer2-Pivoting-Client  
+
+  用 winpcap 在链路层抓包与 linux 的 tun 设备互联
+
+
+- VPN_Pivoting https://github.com/imgits/VPN_Pivoting
+
+  在 win 下使用 tap 设备建立的 vpn 隧道，同样依赖 winpcap 来发包

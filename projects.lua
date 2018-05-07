@@ -331,8 +331,38 @@ workspace "winpcap-examples"
 
 
         create_winpacp_example_project("example-019", "src")
-            
 
+
+    group "VPN_Pivoting"
+        create_winpacp_example_project("Client", "src/VPN_Pivoting")
+        create_winpacp_example_project("Server", "src/VPN_Pivoting")
+        create_winpacp_example_project("wintap", "src/VPN_Pivoting")   
+            filter { "platforms:Win32" }    
+                characterset "MBCS"
+                includedirs
+                {
+                    "src/VPN_Pivoting/n2n"
+                }
+                links
+                {
+                    
+                }
+            filter "platforms:x64"
+                characterset "MBCS"
+                includedirs
+                {
+                    "src/VPN_Pivoting/n2n"
+                }
+                links
+                {
+                    
+                }
+
+     
+            
+    group "Layer2-Pivoting-Client"
+         create_winpacp_example_project("Layer2-Pivoting-Client", "src")
+        
 --        create_console_project("CreateSignature", "src")
 --            includedirs
 --            {
